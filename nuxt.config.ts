@@ -2,14 +2,18 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ['nuxt-auth-utils'],
   runtimeConfig: {
-    session: {
-      password: process.env.NUXT_SESSION_PASSWORD || 'none'
+    oauth: {
+      google: {
+        clientId: process.env.NUXT_OAUTH_GOOGLE_CLIENT_ID,
+        clientSecret: process.env.NUXT_OAUTH_GOOGLE_CLIENT_SECRET,
+      }
     },
+
     public: {
       cloudnaryName: process.env.CLOUDINARY_CLOUD_NAME,
       uploadPreset: process.env.CLOUDINARY_UPLOAD_PRESET,
     }
   },
+  modules: ['nuxt-auth-utils'],
 })

@@ -1,0 +1,22 @@
+export default defineOAuthGoogleEventHandler({
+  async onSuccess(event, { user, tokens }) {
+    console.log('Login bem-sucedido:', user);
+   
+    await setUserSession(event, {
+      user: {
+        id: user.id,
+        email: user.email,
+        urlPic: user.picture,
+        nome: String(user.name).trim(),
+      },
+    });
+    
+    return sendRedirect(event, "/form");
+    
+  },
+  
+  onError(event, error) {
+    console.error('Erro no login:', error);
+    return sendRedirect(event, "/");
+  },
+});
