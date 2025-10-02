@@ -6,10 +6,11 @@ const emit = defineEmits(['proximo']);
 // --- Variáveis de estado ---
 const imageUrl = ref(''); // Armazenará a URL final do Cloudinary
 const isUploading = ref(false); // Para feedback ao usuário (ex: mostrar um spinner)
-const uploadError = ref(''); // Para mostrar mensagens de erro
+const uploadError = ref('');
+const config = useRuntimeConfig()
 
-const cloudName = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME; 
-const uploadPreset = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET;
+const cloudName = config.public.cloudnaryName; 
+const uploadPreset = config.public.uploadPreset;
 
 async function handleUpload(e) {
   const file = e.target.files[0];

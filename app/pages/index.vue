@@ -29,7 +29,7 @@ import { Heart, QrCode } from "lucide-vue-next";
 
           <div class="d-flex justify-content-center justify-content-lg-start gap-3 mb-3">
             <button type="button" class="btn btn-romantic btn-xl position-relative overflow-hidden">
-              Quero fazer meu site
+              Fazer meu card
               <div class="btn-gradient-overlay"></div>
             </button>
           </div>
@@ -38,7 +38,7 @@ import { Heart, QrCode } from "lucide-vue-next";
 
           <div class="d-flex align-items-center justify-content-center justify-content-lg-start gap-2 text-muted small">
             <Heart class="text-danger heart-beat" style="width:16px; height:16px" />
-            <span>Mais de 4.500 casais felizes</span>
+            <span>Presente especial</span>
             <Heart class="text-danger heart-beat" style="width:16px; height:16px" />
           </div>
         </div>
