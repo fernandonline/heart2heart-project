@@ -1,60 +1,57 @@
 <script setup lang="ts">
-    import FormDados from '~/components/formDados.vue';
-    import FormImage from '~/components/formImage.vue';
-    import FormMessage from '~/components/formMessage.vue';
+    import FormDados from '@/components/formDados.vue';
+    import FormImage from '@/components/formImage.vue';
+    import FormMessage from '@/components/formMessage.vue';
 
-   // onMounted(() => {
-   //
-   // if (!auth.currentUser) {
-   //     return navigateTo('/')
-   // }
-   // })
+
+    const { loggedIn } = useUserSession()
+    if (!loggedIn.value) {
+        navigateTo('/')
+    }
 
     const etapaAtual = ref(0)
     const etapas = [FormImage, FormDados, FormMessage]
 
     const dadosCompletos = ref({
         imageUrl: '',
-        name: '',
+        title: '',
         date: '',
         message: ''
     });
+
+    const salvando = ref(false)
+    const erro = ref('')
 
     function irParaProximaEtapa(dadosDaEtapa: any) {
         Object.assign(dadosCompletos.value, dadosDaEtapa)
         etapaAtual.value++
 
         if (etapaAtual.value >= etapas.length) {
-            //salvarNoBanco()
+            salvarNoBanco()
         }
     }
 
-    /*
     async function salvarNoBanco() {
-        const auth = getAuth()
-        const user = auth.currentUser
-        if (!user) {
-            alert("Login necessário")
-            return
-        }
-        const token = await user.getIdToken()
+        salvando.value = true
+        erro.value = ''
 
-        await fetch('@/server/api/messages/create', {
-            method: 'POST',
-            headers: {
-            Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                ...dadosCompletos.value,
-                publicLink: 'https://seusite.com/mensagem/' + crypto.randomUUID(),
-                publicLinkQR: '', 
+        try {
+            const response = await $fetch('api/cards/create', {
+                method: 'POST',
+                body: dadosCompletos.value
             })
-        })
+            alert('Card criado com sucesso!')
 
-        alert('Mensagem criada!')
+            navigateTo('/dashboard')
+        } catch (error: any) {
+            console.error('Erro ao criar card:', error)
+            erro.value = error.data?.message || 'Erro ao criar card'
+            alert('Erro ao criar card: ' + erro.value)
+        } finally {
+            salvando.value = false
+        }
     }
-    */
+
 
 </script>
 

@@ -4,7 +4,7 @@ export default defineOAuthGoogleEventHandler({
    
     await setUserSession(event, {
       user: {
-        id: user.id,
+        id: user.sub,
         email: user.email,
         urlPic: user.picture,
         nome: String(user.name).trim(),
