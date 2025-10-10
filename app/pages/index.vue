@@ -28,21 +28,8 @@ import { Heart, QrCode } from "lucide-vue-next";
           </p>
 
           <div class="d-flex justify-content-center justify-content-lg-start gap-3 mb-3">
-            <button type="button" class="btn btn-romantic btn-xl position-relative overflow-hidden">
-              Fazer meu card
-              <div class="btn-gradient-overlay"></div>
-            </button>
-          </div>
-
-          <!-- <AddAuth> -->
-          <div class="d-flex justify-content-center justify-content-lg-start gap-3 mb-3">
-            <!-- Use navigateTo com external: true OU um link nativo com data-no-prefetch -->
-            <a 
-              href="/auth/google" 
-              class="btn btn-romantic btn-xl position-relative overflow-hidden text-decoration-none"
-              rel="external"
-            >
-              Login com o Google
+            <a class="btn btn-romantic btn-xl position-relative overflow-hidden" href="/auth/google">
+              Criar meu card
               <div class="btn-gradient-overlay"></div>
             </a>
           </div>
