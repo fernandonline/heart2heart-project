@@ -7,11 +7,11 @@ export default defineOAuthGoogleEventHandler({
         id: user.sub,
         email: user.email,
         urlPic: user.picture,
-        nome: String(user.name).trim(),
+        name: String(user.name).trim(),
       },
     });
     
-    return sendRedirect(event, "/form");
+    return sendRedirect(event, "/dashboard");
     
   },
   

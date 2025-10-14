@@ -21,7 +21,7 @@ export default defineEventHandler(async (event) => {
   return cards.map(card => ({
     id: card._id,
     publicId: card.publicId,
-    imagemUrl: card.imagemUrl,
+    imageUrl: card.imageUrl,
     title: card.title,
     date: card.date,
     message: card.message,

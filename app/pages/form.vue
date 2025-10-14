@@ -1,7 +1,7 @@
 <script setup lang="ts">
-    import FormDados from '@/components/formDados.vue';
-    import FormImage from '@/components/formImage.vue';
-    import FormMessage from '@/components/formMessage.vue';
+    import FormDados from '@/components/FormDados.vue';
+    import FormImage from '@/components/FormImage.vue';
+    import FormMessage from '@/components/FormMessage.vue';
 
 
     const { loggedIn } = useUserSession()

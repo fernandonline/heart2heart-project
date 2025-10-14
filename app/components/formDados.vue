@@ -13,7 +13,7 @@ function enviar()
 
 <template>
   <div>
-    <input v-model="title" placeholder="seu titulo ou seus nomes" />
+    <input v-model="title" placeholder="ex: João e Maria " />
     <input type="date" v-model="date" />
     <button @click="enviar" :disabled="!title || !date"> Próximo </button>
   </div>
