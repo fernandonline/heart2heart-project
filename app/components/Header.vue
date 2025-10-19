@@ -16,7 +16,7 @@
 
       <div class="d-flex text-center gap-3 ">
         <NuxtLink class="nav-link text-white" to="/dashboard">dashboard</NuxtLink>
-        <NuxtLink class="nav-link text-white" href="#">detalhes</NuxtLink>
+        <NuxtLink class="nav-link text-white" href="#">como funciona</NuxtLink>
       </div>
 
       <div v-if="!loggedIn" class="d-flex justify-content-centers">

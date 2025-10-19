@@ -25,15 +25,10 @@ export default defineEventHandler(async (event) => {
     })
   }
   
-  await Card.updateOne(
-    { publicId },
-    { $inc: { visualizacoes: 1 } }
-  )
-  
   return {
+    imageUrl: card.imageUrl,
     title: card.title,
     message: card.message,
     date: card.date,
-    imageUrl: card.imageUrl
   }
 })

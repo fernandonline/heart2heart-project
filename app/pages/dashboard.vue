@@ -1,4 +1,9 @@
 <script setup >
+const { loggedIn } = useUserSession()
+if (!loggedIn.value) {
+    navigateTo('/')
+}
+
 function copiarLink(url) {
   navigator.clipboard.writeText(url)
   alert('Link copiado!')
@@ -9,6 +14,7 @@ const carregando = ref(true)
 const erro = ref('')
 
 onMounted(async () => {
+
   try {
     cards.value = await $fetch('/api/cards/mycard')
   } catch (error) {
@@ -57,8 +63,8 @@ onMounted(async () => {
       </div>
     </div>
     
-    <a href="#" class="btn btn-success mt-4">
+    <NuxtLink to="/form" class="btn btn-success mt-4">
       Criar novo card
-    </a>
+    </NuxtLink>
   </div>
 </template>

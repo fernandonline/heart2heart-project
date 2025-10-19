@@ -1,6 +1,5 @@
 export default defineOAuthGoogleEventHandler({
   async onSuccess(event, { user, tokens }) {
-    console.log('Login bem-sucedido:', user);
    
     await setUserSession(event, {
       user: {

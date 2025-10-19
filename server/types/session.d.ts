@@ -2,7 +2,7 @@ declare module '#auth-utils' {
   interface User {
     id: string
     email: string
-    nome: string
+    name: string
     urlPic?: string
   }
 

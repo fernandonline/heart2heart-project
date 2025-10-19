@@ -4,12 +4,12 @@ const cardSchema = new mongoose.Schema({
   userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
   publicId: { type: String, required: true, unique: true },
   
-  imageUrl: { type: String },
+  imageUrl: { type: String, required: true },
   title: { type: String, required: true },
   date: { type: Date },
   message: { type: String, required: true },
   
-  ativo: { type: Boolean, default: true },
+  active: { type: Boolean, default: true },
 }, {
   timestamps: true
 })

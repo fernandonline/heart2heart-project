@@ -14,7 +14,7 @@ export default defineEventHandler(async (event) => {
     dbUser = await User.create({
       googleId: user.id,
       email: user.email,
-      nome: user.nome,
+      name: user.name,
       urlPic: user.urlPic
     })
   }
@@ -23,12 +23,12 @@ export default defineEventHandler(async (event) => {
   
   const card = await Card.create({
     userId: dbUser._id,
-    publicId: generatePublicId(),
+    imageUrl: body.imageUrl,
     title: body.title,
     message: body.message,
     date: new Date(body.date) || null,
-    imageUrl: body.imageUrl,
-    ativo: true,
+    publicId: generatePublicId(),
+    active: true,
   })
   
     return {
@@ -36,7 +36,7 @@ export default defineEventHandler(async (event) => {
         card: {
             id: card._id,
             publicId: card.publicId,
-            titulo: card.titulo,
+            title: card.title,
             url: `${getRequestURL(event).origin}/card/${card.publicId}`
         }
     }

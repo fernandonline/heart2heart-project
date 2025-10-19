@@ -15,16 +15,16 @@ export default defineEventHandler(async (event) => {
   
   const cards = await Card.find({ 
     userId: dbUser._id,
-    ativo: true 
+    active: true 
   }).sort({ createdAt: -1 })
   
   return cards.map(card => ({
     id: card._id,
     publicId: card.publicId,
     imageUrl: card.imageUrl,
+    message: card.message,
     title: card.title,
     date: card.date,
-    message: card.message,
     url: `${getRequestURL(event).origin}/card/${card.publicId}`
   }))
 })
