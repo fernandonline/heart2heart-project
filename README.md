@@ -29,18 +29,18 @@ Quem cria precisa fazer login. Quem recebe acessa diretamente pelo link, sem cad
 
 ## Como rodar localmente
 
-1. Clone o repositório
+### 1. Clone o repositório
 ```bash
 git clone https://github.com/seu-usuario/heart2heart.git
 cd heart2heart
 ```
 
-2. Instale as dependências
+### 2. Instale as dependências
 ```bash
 npm install
 ```
 
-3. Configure as variáveis de ambiente
+### 3. Configure as variáveis de ambiente
 
 Crie um arquivo `.env` na raiz do projeto:
 ```env
@@ -51,7 +51,7 @@ CLOUDINARY_CLOUD_NAME=seu_cloud_name
 CLOUDINARY_UPLOAD_PRESET=seu_preset
 ```
 
-4. Configure o OAuth do Google
+### 4. Configure o OAuth do Google
 
 - Acesse o [Google Cloud Console](https://console.cloud.google.com)
 - Crie um projeto
@@ -59,7 +59,7 @@ CLOUDINARY_UPLOAD_PRESET=seu_preset
 - Crie credenciais OAuth 2.0
 - Adicione `http://localhost:3000/auth/google` como URI de redirecionamento
 
-5. Rode o projeto
+### 5. Rode o projeto
 ```bash
 npm run dev
 ```
