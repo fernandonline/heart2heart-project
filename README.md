@@ -101,17 +101,6 @@ heart2heart/
 └── nuxt.config.ts
 ```
 
-## Segurança
-
-- Dados do usuário (email, googleId) nunca são expostos publicamente
-- Apenas cards com `ativo: true` são exibidos
-- publicId é gerado aleatoriamente
-- Rotas privadas verificam autenticação no backend
-
 ## Deploy
 
 (Em construção)
-
-## Licença
-
-MIT

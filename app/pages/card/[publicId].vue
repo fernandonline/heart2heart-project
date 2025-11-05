@@ -7,7 +7,7 @@ const error = ref('')
 onMounted(async () => {
     try
     {
-        const publicId = route.params.id;
+        const publicId = route.params.publicId;
         card.value = await $fetch(`/api/cards/${publicId}`);
     }
     catch (err: any)
@@ -32,7 +32,7 @@ onMounted(async () => {
     </div>
     
     <div v-else class="card">
-      <div v-if="card.imagemUrl" class="card-img-top" :style="{ backgroundImage: `url(${card.imagemUrl})`, height: '400px', backgroundSize: 'cover' }"></div>
+      <div v-if="card.imageUrl" class="card-img-top" :style="{ backgroundImage: `url(${card.imageUrl})`, height: '400px', backgroundSize: 'cover' }"></div>
       
       <div class="card-body">
         <h1 class="card-title">{{ card.title }}</h1>

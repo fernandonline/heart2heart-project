@@ -15,7 +15,7 @@ export default defineEventHandler(async (event) => {
   
   const card = await Card.findOne({ 
     publicId,
-    ativo: true 
+    active: true 
   })
   
   if (!card) {
@@ -28,7 +28,7 @@ export default defineEventHandler(async (event) => {
   return {
     imageUrl: card.imageUrl,
     title: card.title,
-    message: card.message,
     date: card.date,
+    message: card.message,
   }
 })
