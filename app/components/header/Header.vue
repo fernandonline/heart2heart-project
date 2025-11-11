@@ -1,43 +1,50 @@
 <script setup>
-  const { user, loggedIn, clear } = useUserSession();
+import Button from '@/components/ui/Button.vue'
 
-  async function userLogout() {
+const { user, loggedIn, clear } = useUserSession();
+
+async function userLogout() {
   await clear()
   navigateTo('/')
+}
+
+function loginWithGoogle() {
+  window.location.href = '/auth/google'
+}
+
+function indexPage() {
+  window.location.href = '/'
 }
 </script>
 
 <template>
   <header class="navbar d-flex flex-row header-color p-3">
-      <a class="navbar-brand" href="/">
-        <img src="" alt="Logo" width="24" height="24" class="d-inline-block align-text-top text-white">
-        
-      </a>
+    <img src="@/../public/h2h-logo-white.svg" alt="Logo" width="42" height="42" class="navbar-brand p-0" @click="indexPage"/>
 
       <div class="d-flex text-center gap-3 ">
-        <NuxtLink class="nav-link text-white" to="/dashboard">dashboard</NuxtLink>
-        <NuxtLink class="nav-link text-white" href="#">como funciona</NuxtLink>
+        <NuxtLink v-if="loggedIn" class="nav-link text-white" to="/dashboard">Dashboard</NuxtLink>
+        <NuxtLink class="nav-link text-white" href="#">Como funciona?</NuxtLink>
+        <NuxtLink class="nav-link text-white" href="#">F.A.Q</NuxtLink>
       </div>
 
       <div v-if="!loggedIn" class="d-flex justify-content-centers">
-        <a class="btn btn-romantic" href="/auth/google">
-          Criar meu card
-          <div class="btn-gradient-overlay"></div>
-        </a>
+          <Button @click="loginWithGoogle">
+              Criar meu card
+              <div class="btn-gradient-overlay"></div>
+          </Button>
       </div>
 
       <div v-if="loggedIn">
         <span class="text-white">Olá {{user.name}}</span>
         <img :src="user?.urlPic" width="35" style="border-radius:50%; margin:0px 10px;"/>
 
-        <button 
+        <Button 
           @click="userLogout"
           type="button"
-          class="btn btn-romantic"
         >
           Sair
-        </button>
-       </div>
+        </Button>
+      </div>
   </header>
 </template>
 
@@ -46,24 +53,10 @@
   background: #720026;
 }
 
-.btn-romantic {
-  color: #720026;
-  background-color: #f72585;
-  border: none;
-  overflow: hidden;
-  position: relative;
-  transition: color 0.3s ease;
-  &:hover {
-    color: #fff;
-  }
+.navbar-brand {
+  cursor: pointer;
 }
 
-.btn-xl {
-  padding: 0.75rem 2rem;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 0.75rem;
-}
 .btn-gradient-overlay {
   position: absolute;
   inset: 0;

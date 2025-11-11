@@ -36,9 +36,9 @@ function enviar() {
       type="file" 
       @change="handleFileSelect" 
       accept="image/*"
+      required="true"
     />
 
-    <!-- Preview da imagem -->
     <div v-if="previewUrl" class="preview">
       <img :src="previewUrl" alt="Preview" />
       <p>Imagem selecionada: {{ imageFile?.name }}</p>

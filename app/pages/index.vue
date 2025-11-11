@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import { Heart, QrCode } from "lucide-vue-next";
+import Button from "@/components/ui/Button.vue";
+function loginWithGoogle() {
+  window.location.href = '../auth/google'
+}
 </script>
 
 <template>
@@ -16,10 +20,10 @@ import { Heart, QrCode } from "lucide-vue-next";
             <span class="text-danger fw-semibold"> uma surpresa inesquecível</span>
           </p>
           
-          <a class="btn btn-romantic btn-xl position-relative overflow-hidden mb-4" href="/auth/google">
+          <Button @click="loginWithGoogle">
             Criar meu card
             <div class="btn-gradient-overlay"></div>
-          </a>
+          </Button>
 
           <!--
           <div class="d-flex align-items-center justify-content-lg-start justify-content-center gap-2 text-muted small">
@@ -30,7 +34,6 @@ import { Heart, QrCode } from "lucide-vue-next";
           -->
         </div>
 
-        <!-- Right Content - QR Code -->
         <div class="col-lg-5 d-flex justify-content-center">
           <div class="qr-code-box rounded-3 p-3 position-relative">
             <QrCode class="text-purple" style="width:100%; height:100%;" />
@@ -40,7 +43,6 @@ import { Heart, QrCode } from "lucide-vue-next";
       </div>
     </div>
 
-    <!-- Decorative Elements -->
     <div class="decorative-circle circle-1"></div>
     <div class="decorative-circle circle-2"></div>
     <div class="background-orb orb-1"></div>
@@ -49,7 +51,6 @@ import { Heart, QrCode } from "lucide-vue-next";
 </template>
 
 <style scoped>
-/* Button romantic variant */
 .btn-romantic {
   color: #fff;
   background-color: #f72585;
@@ -85,7 +86,6 @@ import { Heart, QrCode } from "lucide-vue-next";
   transform: translateX(0);
 }
 
-/* Animations */
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
@@ -105,7 +105,6 @@ import { Heart, QrCode } from "lucide-vue-next";
   animation: heartbeat 1.5s infinite;
 }
 
-/* QR Code box */
 .qr-code-box {
   width: 180px;
   height: 180px;
@@ -119,7 +118,6 @@ import { Heart, QrCode } from "lucide-vue-next";
   animation: float 6s ease-in-out infinite;
 }
 
-/* Decorative circles */
 .decorative-circle {
   position: absolute;
   border-radius: 50%;
@@ -144,7 +142,6 @@ import { Heart, QrCode } from "lucide-vue-next";
   right: 1rem;
 }
 
-/* Background orbs */
 .background-orb {
   position: absolute;
   width: 24rem;
@@ -168,7 +165,7 @@ import { Heart, QrCode } from "lucide-vue-next";
   animation-delay: 1s;
 }
 
-/* Mobile adjustments */
+/* Mobile */
 @media (max-width: 840px) {
   .qr-code-box {
     width: 150px;

@@ -2,7 +2,7 @@ import { connectDB } from '@/../server/utils/mongoose'
 import { Card } from '@/../server/models/card'
 
 export default defineEventHandler(async (event) => {
-  const publicId = getRouterParam(event, 'publicId')
+  const publicId = getRouterParam(event, 'id')
   
   if (!publicId) {
     throw createError({

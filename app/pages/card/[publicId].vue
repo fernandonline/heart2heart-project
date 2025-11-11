@@ -7,16 +7,17 @@ const error = ref('')
 onMounted(async () => {
     try
     {
-        const publicId = route.params.publicId;
-        card.value = await $fetch(`/api/cards/${publicId}`);
+      const publicId = route.params.publicId;
+      card.value = await $fetch(`/api/cards/${publicId}`);
     }
     catch (err: any)
     {
-        error.value = err.data?.message || 'Card não encontrado';
+      error.value = err.data?.message || 'Card não encontrado';
+      console.error(err);
     }
     finally
     {
-        loading.value = false;
+      loading.value = false;
     }
 })
 </script>
@@ -32,7 +33,7 @@ onMounted(async () => {
     </div>
     
     <div v-else class="card">
-      <div v-if="card.imageUrl" class="card-img-top" :style="{ backgroundImage: `url(${card.imageUrl})`, height: '400px', backgroundSize: 'cover' }"></div>
+      <div v-if="card.imageUrl" class="card-img-top" :style="{ backgroundImage: `url(${card.imageUrl})`, backgroundSize: 'cover' }"></div>
       
       <div class="card-body">
         <h1 class="card-title">{{ card.title }}</h1>

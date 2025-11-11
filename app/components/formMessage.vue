@@ -19,12 +19,14 @@ function enviar() {
     <h2>Sua mensagem</h2>
 
     <div class="form-group">
-      <label for="message">Mensagem *</label>
+      <label for="message">Mensagem</label>
       <textarea 
         id="message"
         v-model="message" 
         placeholder="Digite sua mensagem..."
         rows="8"
+        required="true"
+
       />
       <small>Dica: Cada linha será uma quebra na exibição</small>
     </div>
@@ -34,7 +36,7 @@ function enviar() {
       :disabled="!message.trim()"
       class="btn-finalizar"
     >
-      Finalizar ✓
+      Finalizar
     </button>
   </div>
 </template>

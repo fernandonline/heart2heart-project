@@ -76,7 +76,7 @@ onMounted(() => {
           <div class="card-body">
             <h5 class="card-title">{{ card.title }}</h5>
             <p class="card-text">{{ card.message }}</p>
-            <small class="text-muted">Data: {{ card.date}}</small>
+            <!--adicionar mais tarde: <small class="text-muted">Data: {{ card.date}}</small> -->
             
             <a :href="card.url" target="_blank" class="btn btn-primary btn-sm">
               Ver card
@@ -91,7 +91,7 @@ onMounted(() => {
                 :disabled="deleting === card.id"
                 class="btn btn-danger btn-sm"
             >
-              {{ deleting === card.id ? '⏳' : '🗑️' }} Deletar
+              Deletar
             </button>
 
           </div>

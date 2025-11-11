@@ -9,33 +9,20 @@ if (!loggedIn.value) {
 }
 
 const config = useRuntimeConfig()
-
-// ========================================
-// CONTROLE DE ETAPAS
-// ========================================
 const etapaAtual = ref(0)
 const etapas = [FormImage, FormTitle, FormMessage]
 const titulosEtapas = ['Escolha a imagem', 'Dados do card', 'Sua mensagem']
 
-// ========================================
-// ARMAZENA DADOS DE CADA ETAPA
-// ========================================
 const dadosCompletos = ref({
-    imageFile: null as File | null,  // Arquivo (não URL ainda!)
+    imageFile: null as File | null,
     title: '',
     date: '',
     message: ''
 })
 
-// ========================================
-// ESTADOS
-// ========================================
 const processando = ref(false)
 const erro = ref('')
 
-// ========================================
-// AVANÇA PRA PRÓXIMA ETAPA
-// ========================================
 function irParaProximaEtapa(dadosDaEtapa: any) {
     // Salva os dados dessa etapa
     Object.assign(dadosCompletos.value, dadosDaEtapa)
@@ -51,18 +38,12 @@ function irParaProximaEtapa(dadosDaEtapa: any) {
     }
 }
 
-// ========================================
-// VOLTA PRA ETAPA ANTERIOR
-// ========================================
 function voltarEtapa() {
     if (etapaAtual.value > 0) {
         etapaAtual.value--
     }
 }
 
-// ========================================
-// UPLOAD DA IMAGEM PRO CLOUDINARY
-// ========================================
 async function uploadImage(file: File): Promise<string> {
     console.log('Fazendo upload da imagem...')
     
@@ -99,12 +80,7 @@ async function processarTudo() {
     erro.value = ''
 
     try {
-        // PASSO 1: Upload da imagem
-        console.log('Passo 1/2: Upload da imagem')
         const imageUrl = await uploadImage(dadosCompletos.value.imageFile!)
-
-        // PASSO 2: Salvar no banco
-        console.log('Passo 2/2: Salvando no banco')
         await $fetch('/api/cards/create', {
             method: 'POST',
             body: {
@@ -114,21 +90,15 @@ async function processarTudo() {
                 message: dadosCompletos.value.message
             }
         })
-
-        // SUCESSO! 🎉
-        alert('✅ Card criado com sucesso!')
+        alert('Card criado com sucesso!')
         navigateTo('/dashboard')
-
     } catch (error: any) {
-        console.error('❌ Erro:', error)
+        console.error('Erro:', error)
         erro.value = error.message || 'Erro ao criar card'
-        alert('❌ ' + erro.value)
-        
-        // Volta pra primeira etapa pra tentar de novo
-        etapaAtual.value = 0
-        
+        alert(erro.value)
+        etapaAtual.value = 0 
     } finally {
-        processando.value = false
+      processando.value = false
     }
 }
 </script>
@@ -151,12 +121,10 @@ async function processarTudo() {
       </div>
     </div>
 
-    <!-- ============ ERRO GERAL ============ -->
     <div v-if="erro" class="error-box">
       {{ erro }}
     </div>
 
-    <!-- ============ ETAPA ATUAL ============ -->
     <div v-if="!processando">
       <component 
         :is="etapas[etapaAtual]" 
@@ -164,7 +132,6 @@ async function processarTudo() {
         @proximo="irParaProximaEtapa"
       />
       
-      <!-- Botão de voltar (exceto na primeira etapa) -->
       <button 
         v-if="etapaAtual > 0"
         @click="voltarEtapa"
@@ -174,7 +141,6 @@ async function processarTudo() {
       </button>
     </div>
 
-    <!-- ============ PROCESSANDO ============ -->
     <div v-else class="processing">
       <p>⏳ Processando seu card...</p>
       <p>Aguarde, estamos enviando a imagem e salvando os dados.</p>

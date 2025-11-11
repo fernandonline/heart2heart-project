@@ -33,7 +33,7 @@ function enviar() {
     </div>
 
     <div class="form-group">
-      <label for="date">Data *</label>
+      <label for="date">Data</label>
       <input 
         id="date"
         v-model="date" 
