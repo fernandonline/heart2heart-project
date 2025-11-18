@@ -20,9 +20,9 @@
 }
 
 .btn {
-  padding: 0.5rem 1.7rem;
+  padding: 0.4em 1.2em;
   font-size: 1.2em;
   font-weight: 600;
-  border-radius: 0.8rem;
+  border-radius: 0.6em;
 }
 </style>

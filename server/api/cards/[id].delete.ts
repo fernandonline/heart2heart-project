@@ -40,6 +40,7 @@ export default defineEventHandler(async (event) => {
     }
     
     card.active = false
+    card.deletedAt = new Date()
     await card.save()  
     return {
         success: true,

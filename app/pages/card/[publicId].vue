@@ -8,7 +8,8 @@ onMounted(async () => {
     try
     {
       const publicId = route.params.publicId;
-      card.value = await $fetch(`/api/cards/${publicId}`);
+      const response: any = await $fetch(`/api/cards/${publicId}`)
+      card.value = response
     }
     catch (err: any)
     {
@@ -23,22 +24,32 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="container mt-5">
-    <div v-if="loading" class="text-center">
-      Carregando...
-    </div>
+  <client-only>
+    <div class="container mt-5">
+      <div v-if="loading" class="text-center">
+        Carregando...
+      </div>
     
-    <div v-else-if="error" class="alert alert-danger">
-      {{ error }}
-    </div>
+      <div v-else-if="error" class="alert alert-danger">
+        {{ error }}
+      </div>
     
-    <div v-else class="card">
-      <div v-if="card.imageUrl" class="card-img-top" :style="{ backgroundImage: `url(${card.imageUrl})`, backgroundSize: 'cover' }"></div>
-      
-      <div class="card-body">
-        <h1 class="card-title">{{ card.title }}</h1>
-        <p class="card-text lead">{{ card.message }}</p> 
+      <div v-else class="card">
+        <img v-if="card.imageUrl" :src="card.imageUrl" class="card-img-top">
+        <div class="card-body">
+          <h1 class="card-title">{{ card.title }}</h1>
+          <p class="card-text lead">{{ card.message }}</p> 
+        </div>
       </div>
     </div>
-  </div>
+  </client-only>
 </template>
+
+<style scoped>
+.card-img-top {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+</style>

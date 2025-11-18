@@ -1,4 +1,7 @@
-export const generatePublicId = (): string => {
-  const random = Math.random().toString(36).substring(2, 11)
-  return `${random}`
+export const generatePublicId = (length: number = 12): string => {
+  let id = ''
+  while (id.length < length) {
+    id += Math.random().toString(36).substring(2)
+  }
+  return id.substring(0, length)
 }

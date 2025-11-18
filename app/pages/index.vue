@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { Heart, QrCode } from "lucide-vue-next";
 import Button from "@/components/ui/Button.vue";
+import BackgroundIndex from "@/components/ui/BackgroundIndex.vue";
 function loginWithGoogle() {
   window.location.href = '../auth/google'
 }
 </script>
 
 <template>
-  <section class="min-vh-100 w-100 d-flex align-items-center p-4 position-relative overflow-hidden">
-
+  <BackgroundIndex>
     <div class="container-fluid">
 
       <div class="row align-items-center g-4">
@@ -47,31 +47,10 @@ function loginWithGoogle() {
     <div class="decorative-circle circle-2"></div>
     <div class="background-orb orb-1"></div>
     <div class="background-orb orb-2"></div>
-  </section>
+  </BackgroundIndex>
 </template>
 
 <style scoped>
-.btn-romantic {
-  color: #fff;
-  background-color: #f72585;
-  border: none;
-  overflow: hidden;
-  position: relative;
-  transition: color 0.3s ease;
-}
-
-.btn-romantic:hover {
-  color: #fff;
-  background-color: #e6006e;
-}
-
-.btn-xl {
-  padding: 0.75rem 2rem;
-  font-size: 1.25rem;
-  font-weight: 600;
-  border-radius: 0.75rem;
-}
-
 .btn-gradient-overlay {
   position: absolute;
   inset: 0;
@@ -84,21 +63,6 @@ function loginWithGoogle() {
 
 .btn-romantic:hover .btn-gradient-overlay {
   transform: translateX(0);
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-@keyframes orbGlow {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 0.6; }
-}
-
-@keyframes heartbeat {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.2); }
 }
 
 .heart-beat {
@@ -116,53 +80,6 @@ function loginWithGoogle() {
   justify-content: center;
   align-items: center;
   animation: float 6s ease-in-out infinite;
-}
-
-.decorative-circle {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(20px);
-  opacity: 0.4;
-  animation: float 6s ease-in-out infinite;
-}
-
-.circle-1 {
-  width: 100px;
-  height: 100px;
-  background: linear-gradient(90deg, #720026, #f72585);
-  bottom: -3rem;
-  left: -3rem;
-}
-
-.circle-2 {
-  width: 80px;
-  height: 80px;
-  background: linear-gradient(90deg, #f72585, #720026);
-  top: -3rem;
-  right: 1rem;
-}
-
-.background-orb {
-  position: absolute;
-  width: 24rem;
-  height: 24rem;
-  background: linear-gradient(90deg, #f72585, #720026);
-  border-radius: 50%;
-  filter: blur(70px);
-  opacity: 0.3;
-  z-index: 0;
-  animation: orbGlow 6s ease-in-out infinite;
-}
-
-.orb-1 {
-  top: -8rem;
-  left: -8rem;
-}
-
-.orb-2 {
-  bottom: -8rem;
-  right: -8rem;
-  animation-delay: 1s;
 }
 
 /* Mobile */

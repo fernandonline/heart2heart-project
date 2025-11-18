@@ -20,6 +20,11 @@ export default defineEventHandler(async (event) => {
   }
   
   const body = await readBody(event)
+
+
+  // const messageArray = typeof body.message === 'string' ?
+  //   body.message.split('\n').map((line: string) => line.trim()).filter((line: string) => line) :
+  //     body.message
   
   const card = await Card.create({
     userId: dbUser._id,
