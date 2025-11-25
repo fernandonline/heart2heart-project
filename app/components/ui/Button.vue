@@ -6,8 +6,8 @@
 
 <style scoped>
 .btn-romantic {
-  color: #fff;
-  background-color: #f72585;
+  color: var(--white);
+  background-color: var(--fuchsia-red);
   border: none;
   overflow: hidden;
   position: relative;
@@ -15,8 +15,8 @@
 }
 
 .btn-romantic:hover {
-  color: #fff;
-  background-color: #e6006e;
+  color: var(--white);
+  background-color: #FF496A;
 }
 
 .btn {
@@ -25,4 +25,5 @@
   font-weight: 600;
   border-radius: 0.6em;
 }
+
 </style>

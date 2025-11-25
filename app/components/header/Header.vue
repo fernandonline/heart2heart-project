@@ -30,7 +30,6 @@ function indexPage() {
       <div v-if="!loggedIn" class="d-flex justify-content-centers">
           <Button @click="loginWithGoogle">
               Minha conta
-              <div class="btn-gradient-overlay"></div>
           </Button>
       </div>
 
@@ -50,7 +49,7 @@ function indexPage() {
 
 <style scoped>
 .header-color {
-  background: #720026;
+  background: var(--ruby-red);
 }
 
 .navbar {
@@ -59,18 +58,5 @@ function indexPage() {
 
 .navbar-brand {
   cursor: pointer;
-}
-
-.btn-gradient-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(114, 0, 38, 0.2), rgba(247, 37, 133, 0.2));
-  transform: translateX(100%);
-  transition: transform 0.5s ease;
-  border-radius: 0.75rem;
-  z-index: 0;
-}
-.btn-romantic:hover .btn-gradient-overlay {
-  transform: translateX(0);
 }
 </style>

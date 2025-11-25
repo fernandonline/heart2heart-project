@@ -25,23 +25,25 @@ onMounted(async () => {
 
 <template>
   <client-only>
-    <div class="container mt-5">
-      <div v-if="loading" class="text-center">
-        Carregando...
-      </div>
+    <ui-background-grid>
+      <div class="container mt-5">
+        <div v-if="loading" class="text-center">
+          Carregando...
+        </div>
     
-      <div v-else-if="error" class="alert alert-danger">
-        {{ error }}
-      </div>
-    
-      <div v-else class="card">
-        <img v-if="card.imageUrl" :src="card.imageUrl" class="card-img-top">
-        <div class="card-body">
-          <h1 class="card-title">{{ card.title }}</h1>
-          <p class="card-text lead">{{ card.message }}</p> 
+        <div v-else-if="error" class="alert alert-danger">
+          {{ error }}
+        </div>
+        
+        <div v-else class="card">
+          <img v-if="card.imageUrl" :src="card.imageUrl" class="card-img-top">
+          <div class="card-body">
+            <h1 class="card-title">{{ card.title }}</h1>
+            <p class="card-text lead">{{ card.message }}</p> 
+          </div>
         </div>
       </div>
-    </div>
+    </ui-background-grid>
   </client-only>
 </template>
 
@@ -52,4 +54,9 @@ onMounted(async () => {
   border-radius: 8px;
 }
 
+/* http://localhost:3000/card/b6pbkkvdl */
+
+header {
+  display: none;
+}
 </style>

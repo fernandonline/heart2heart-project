@@ -1,6 +1,20 @@
 <script setup>
-import Header from '@/components/header/Header.vue'
+useHead({
+  script: [
+    {
+      src: "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js",
+      defer: true
+    }
+  ],
+  link: [
+    {
+      rel: "stylesheet",
+      href: "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    }
+  ]
+})
 </script>
+
 <template>
   <Header/>
   <NuxtLayout>
@@ -9,11 +23,13 @@ import Header from '@/components/header/Header.vue'
 </template>
 
 <style>
-/*
-body {
-  background-color: #030d21;
-  color: #fff;
-}
-  */
+:root {
+  --radius-card: 14px;
+  --radius-img: 12px;
 
+  --bg: #1A1A1E;
+  --white: #FFF;
+  --ruby-red: #8C001D;
+  --fuchsia-red: #F52F57;
+}
 </style>
