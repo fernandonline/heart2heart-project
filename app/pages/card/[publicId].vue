@@ -4,6 +4,10 @@ const card = ref()
 const loading = ref(true)
 const error = ref('')
 
+definePageMeta({
+  layout: 'custom',
+})
+
 onMounted(async () => {
     try
     {

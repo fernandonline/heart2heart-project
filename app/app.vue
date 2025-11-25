@@ -13,12 +13,12 @@ useHead({
     }
   ]
 })
+
 </script>
 
 <template>
-  <Header/>
   <NuxtLayout>
-    <NuxtPage/>
+    <NuxtPage />
   </NuxtLayout>
 </template>
 
