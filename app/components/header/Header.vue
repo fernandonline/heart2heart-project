@@ -21,20 +21,20 @@ function indexPage() {
   <header class="navbar navbar-expand-lg header-color">
     <div class="container-fluid">
 
-      <img src="@/../public/h2h-logo-white.svg" alt="Logo" width="42" height="42" class="navbar-brand p-0"
-        @click="indexPage" />
+      <img src="@/../public/h2h-logo.svg" alt="Logo" width="48" height="35" class="navbar-brand p-0" @click="indexPage"/>
+      <span class="fw-bold fs-4 text-white"> Heart2Heart </span>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+      <div class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
         <span class="navbar-toggler-icon"></span>
-      </button>
+      </div>
 
       <div class="collapse navbar-collapse" id="navbarContent">
-        <div class="navbar-nav ms-auto d-flex align-items-center gap-3">
+        <div class="navbar-nav d-flex align-items-center w-100 justify-content-end">
           <NuxtLink v-if="loggedIn" class="nav-link text-white" to="/dashboard">Dashboard</NuxtLink>
           <NuxtLink class="nav-link text-white" href="#">Como funciona?</NuxtLink>
           <NuxtLink class="nav-link text-white" href="#">F.A.Q</NuxtLink>
-
-          <div v-if="!loggedIn">
+          
+          <div v-if="!loggedIn" style="margin-left:1%;">
             <Button @click="loginWithGoogle">Minha conta</Button>
           </div>
           
@@ -62,4 +62,5 @@ function indexPage() {
 .navbar-brand {
   cursor: pointer;
 }
+
 </style>

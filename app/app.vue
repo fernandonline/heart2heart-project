@@ -34,6 +34,10 @@ useHead({
   --fuchsia-red: #F52F57;
 }
 
+.fuchsia-red {
+  color: var(--fuchsia-red)
+}
+
 html, body {
     overflow-x: hidden;
     max-width: 100vw;

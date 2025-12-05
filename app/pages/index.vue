@@ -8,26 +8,24 @@ function loginWithGoogle() {
 </script>
 
 <template>
-    <section class="my-container bg1">
-        <div class="container">
-
-            <div class="row align-items-center pt-5 mt-lg-auto">
-                <div class="col-lg-7 text-lg-start text-start">
-                    <h2 class="display-3 fw-bold text-dark mb-3">Surpreenda alguém especial</h2>
-                    <p class="text-muted mb-4" style="font-size: 1.1rem;">
+    <section class="bg1">
+            <div class="plr row pt-5">
+                <div class="col-lg-8 text-start mt-lg-5">
+                    <h2 class="display-4 fw-bold text-dark mb-3">Surpreenda alguém especial</h2>
+                    <p class="text-muted mb-5 mb-lg-4 fw-bold">
                         Crie um card digital com foto, titulo, mensagem e compartilhe seu carinho enviando o QR code
                         com
                         <span class="text-danger fw-semibold"> uma surpresa inesquecível</span>
                     </p>
 
-                    <Button @click="loginWithGoogle">
+                    <Button @click="loginWithGoogle" class="display-6">
                         Criar meu card digital agora!
                         <div class="btn-gradient-overlay"></div>
                     </Button>
                 </div>
 
                 <!-- card -->
-                <div class="col-lg-5 col-md-6 mt-4 mt-lg-0 d-flex justify-content-center">
+                <div class="col-lg-4 col-md-10 mt-5 mt-lg-0 d-flex justify-content-center">
                     <div class="bg-white rounded-4 shadow-lg w-100" style="max-width: 320px">
                         <div class="bg-light rounded-3">
 
@@ -58,7 +56,6 @@ function loginWithGoogle() {
                 </div>
 
             </div>
-        </div>
     </section>
 
     <!-- Seção dos 3 passos -->
@@ -105,9 +102,8 @@ function loginWithGoogle() {
 </template>
 
 <style scoped>
-.my-container {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+.plr {
+    padding: 0 5rem;
 }
 
 .bg1 {
