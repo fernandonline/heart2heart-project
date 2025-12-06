@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Heart, Phone, QrCode } from "lucide-vue-next";
-import Button from "@/components/ui/Button.vue";
+import { Heart, QrCode } from "lucide-vue-next";
+import Button from "@/components/ui/RedButton.vue";
 
 function loginWithGoogle() {
     window.location.href = '../auth/google'

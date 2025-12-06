@@ -1,9 +1,9 @@
 <script setup>
-import Button from '../ui/Button.vue'
+import Button from '../ui/RedButton.vue'
 </script>
 
 <template>
-    <section class="border d-inline-flex w-100 align-items-center">
+    <section class="d-inline-flex w-100 align-items-center">
         
         <h2>Meus cards</h2>
 

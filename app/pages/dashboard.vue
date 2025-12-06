@@ -1,10 +1,9 @@
 <script setup>
-import { AlignCenter } from 'lucide-vue-next'
 import Button from '~/components/ui/Button.vue'
 
 const { loggedIn } = useUserSession()
 if (!loggedIn.value) {
-    navigateTo('/')
+  navigateTo('/')
 }
 
 function copiarLink(url) {
@@ -17,7 +16,7 @@ const carregando = ref(true)
 const erro = ref('')
 const deleting = ref(null)
 
-async function loadingCards () {
+async function loadingCards() {
   carregando.value = true;
   erro.value = '';
 
@@ -35,20 +34,17 @@ async function deleteCard(cardId, cardTitle) {
   if (!confirm(`Tem certeza que deseja deletar "${cardTitle}"?`)) { return }
 
   deleting.value = cardId
-  
-  try
-  {
+
+  try {
     await $fetch(`/api/cards/${cardId}`, {
       method: 'DELETE'
     })
     cards.value = cards.value.filter(c => c.id !== cardId)
-  } 
-  catch (error)
-  {
+  }
+  catch (error) {
     alert('Houve um erro ao deletar: ' + (error.data?.message || 'Erro desconhecido'))
   }
-  finally
-  {
+  finally {
     deleting.value = null
   }
 }
@@ -70,42 +66,58 @@ onMounted(() => {
       </div>
 
       <div v-else-if="cards.length === 0" class="alert alert-info">
-        <UiMenuDashboard class="mb-4"/>
+        <UiMenuDashboard class="mb-4" />
         Você ainda não criou nenhum card!
       </div>
 
-      <div v-else class="col">
-        <UiMenuDashboard class="mb-4"/>
-        <div v-for="card in cards" :key="card.id" class="col-md-4 mb-3">
+      <div v-else>
+        <UiMenuDashboard class="mb-4" />
 
-          <div class="card d-flex flex-row">
-            <div class="d-flex flex-row">
-              <img v-if="card.imageUrl" :src="card.imageUrl" class="card-img-top">
+        <div class="card-container">
+          <div v-for="card in cards" :key="card.id" class=" mb-3">
+            <div class="card">
+              <img :src="card.imageUrl" class="card-img-top" alt="imagem de ${{ card.title }}">
 
-              <div class="card-body">
+              <div class="card-body bg-light">
                 <h5 class="card-title">{{ card.title }}</h5>
                 <p class="card-text">{{ card.message }}</p>
-
                 <!--adicionar mais tarde: <small class="text-muted">Data: {{ card.date}}</small> -->
+
+
+                <div class="w-100 d-flex gap-2">
+                  <Button style="border-color:var(--ruby-red);" class="w-100">
+                    <a class="ruby-red" :href="card.url" target="_blank">Ver card </a>
+                  </Button>
+
+                  <Button style="border-color:var(--ruby-red);" class="w-100">
+                    <a class="ruby-red" :href="card.url" target="_blank">QR code </a>
+                  </Button>
+
+
+                  <div class="dropdown w-25 d-flex justify-content-center">
+                    <Button style="border-color:var(--ruby-red);">
+                      <span class="drop-btn d-flex" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+
+                      </span>
+
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" @click="copiarLink(card.url)"> Copiar link</a>
+                        <a class="dropdown-item" @click="deleteCard(card.id, card.title)"
+                          :disabled="deleting === card.id">
+                          Remover
+                        </a>
+                      </ul>
+                    </Button>
+                  </div>
+                </div>
+
               </div>
             </div>
-
-
-            <div class="dropdown ms-auto">
-              <span class="drop-btn d-flex flex-column" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-              </span>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" :href="card.url" target="_blank">Ver card </a>
-                <a class="dropdown-item" @click="copiarLink(card.url)"> Copiar link</a>
-                <a class="dropdown-item" @click="deleteCard(card.id, card.title)" :disabled="deleting === card.id">
-                  Remover
-                </a>
-              </ul>
-            </div>
-
           </div>
         </div>
       </div>
@@ -114,21 +126,24 @@ onMounted(() => {
 </template>
 
 <style scoped>
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
 .card {
   border-radius: var(--radius-card);
   border: none;
-  background: #F3F3F5;
+  overflow: hidden;
+  background-color: transparent;
+  min-height: 340px;
 }
 
 .card-img-top {
-  max-width: 120px;
-  max-height: 120px;
-  aspect-ratio: 1/1;
+  aspect-ratio: 18/9;
   object-fit: cover;
-  object-position: center;
-  border-top-left-radius: var(--radius-img);
-  border-bottom-left-radius: var(--radius-img);
-  border-top-right-radius: 0;
+  object-position: top;
 }
 
 .card-text {
@@ -140,15 +155,15 @@ onMounted(() => {
 
 .drop-btn {
   cursor: pointer;
-  padding: .8em;
+
 }
 
 .dot {
   width: 3px;
   height: 3px;
-  background-color: #232323;
+  background-color: var(--ruby-red);
   border-radius: 50%;
-  margin: 2px 0;
+  margin: 0 2px;
 }
 
 .dropdown-item {
@@ -159,7 +174,11 @@ onMounted(() => {
   background: rgba(0, 0, 0, 0.2);
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 998px) {
+  .card-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   .card-text {
     -webkit-line-clamp: 3;
   }
