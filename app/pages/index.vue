@@ -103,7 +103,7 @@ function loginWithGoogle() {
 
 <style scoped>
 .plr {
-    padding: 0 5rem;
+    padding: 0 9vw;
 }
 
 .bg1 {
@@ -152,10 +152,8 @@ function loginWithGoogle() {
 }
 
 @media screen and (min-width: 768px) {
-    .my-container {
-        padding-left: 0rem !important;
-        padding-right: 0rem !important;
+    .plr {
+        padding: 0 5rem;
     }
-
 }
 </style>

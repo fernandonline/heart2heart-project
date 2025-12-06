@@ -60,11 +60,7 @@ onMounted(() => {
 
 <template>
   <UiBackgroundGrid>
-    
-
     <div class="container p-4">
-      <h1>Meus Cards</h1>
-
       <div v-if="carregando" class="text-center">
         Carregando...
       </div>
@@ -74,11 +70,13 @@ onMounted(() => {
       </div>
 
       <div v-else-if="cards.length === 0" class="alert alert-info">
+        <UiMenuDashboard class="mb-4"/>
         Você ainda não criou nenhum card!
       </div>
 
-      <div v-else class="col c">
-        <div v-for="card in cards" :key="card.id" class="col-md-4 mb-4">
+      <div v-else class="col">
+        <UiMenuDashboard class="mb-4"/>
+        <div v-for="card in cards" :key="card.id" class="col-md-4 mb-3">
 
           <div class="card d-flex flex-row">
             <div class="d-flex flex-row">
@@ -87,6 +85,7 @@ onMounted(() => {
               <div class="card-body">
                 <h5 class="card-title">{{ card.title }}</h5>
                 <p class="card-text">{{ card.message }}</p>
+
                 <!--adicionar mais tarde: <small class="text-muted">Data: {{ card.date}}</small> -->
               </div>
             </div>
@@ -109,10 +108,6 @@ onMounted(() => {
 
           </div>
         </div>
-        
-        <Button href="/form" class="btn mt-4">
-          Criar novo card
-        </Button>
       </div>
     </div>
   </UiBackgroundGrid>
@@ -162,10 +157,6 @@ onMounted(() => {
 
 .dropdown-item:hover {
   background: rgba(0, 0, 0, 0.2);
-}
-
-.c > .btn {
-  margin-left: 20%;
 }
 
 @media only screen and (min-width: 768px) {
