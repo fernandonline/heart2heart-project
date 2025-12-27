@@ -9,14 +9,15 @@ function loginWithGoogle() {
 
 <template>
     <section class="bg1">
-            <div class="plr row pt-5">
-                <div class="col-lg-8 text-start mt-lg-5">
-                    <h2 class="display-4 fw-bold text-dark mb-3">Surpreenda alguém especial</h2>
-                    <p class="text-muted mb-5 mb-lg-4 fw-bold">
-                        Crie um card digital com foto, titulo, mensagem e compartilhe seu carinho enviando o QR code
-                        com
-                        <span class="text-danger fw-semibold"> uma surpresa inesquecível</span>
-                    </p>
+            <div class="padding-leftright pt-5 pb-4 d-flex flex-row">
+                <div class="text-start mt-lg-4">
+                    <h2 class="display-4 fw-bold text-dark">Surpreenda alguém especial</h2>
+                    <div class="subheader-text mb-5 mb-lg-4">
+                        <p class="text-muted fw-bold">
+                            Crie um card digital com foto, titulo, mensagem e compartilhe seu carinho enviando o QR code com
+                            <span class="text-danger fw-semibold"> uma surpresa inesquecível</span>
+                        </p>
+                    </div>
 
                     <Button @click="loginWithGoogle" class="display-6">
                         Criar meu card digital agora!
@@ -25,8 +26,8 @@ function loginWithGoogle() {
                 </div>
 
                 <!-- card -->
-                <div class="col-lg-4 col-md-10 mt-5 mt-lg-0 d-flex justify-content-center">
-                    <div class="bg-white rounded-4 shadow-lg w-100" style="max-width: 320px">
+                <div class="mt-5 mt-lg-4">
+                    <div class="bg-white rounded-4 shadow-lg w-100" style="max-width: 320px; min-width: 280px;">
                         <div class="bg-light rounded-3">
 
                             <div class="text-start p-4 d-flex flex-column align-items-center">
@@ -102,12 +103,17 @@ function loginWithGoogle() {
 </template>
 
 <style scoped>
-.plr {
-    padding: 0 9vw;
+.padding-leftright {
+    padding: 0 3vw;
 }
 
 .bg1 {
     background: #fff7f7;
+}
+
+.subheader-text {
+    width: 100%;
+    font-size: 1em;
 }
 
 .mockup-container {
@@ -152,8 +158,13 @@ function loginWithGoogle() {
 }
 
 @media screen and (min-width: 768px) {
-    .plr {
-        padding: 0 5rem;
+    .padding-leftright {
+        padding: 0 3em;
+    }
+
+    .subheader-text {
+        width: 75%;
+        font-size: 1.1rem;
     }
 }
 </style>

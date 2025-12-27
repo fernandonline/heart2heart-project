@@ -142,7 +142,7 @@ async function processarTudo() {
     </div>
 
     <div v-else class="processing">
-      <p>⏳ Processando seu card...</p>
+      <p>Processando seu card...</p>
       <p>Aguarde, estamos enviando a imagem e salvando os dados.</p>
     </div>
   </div>

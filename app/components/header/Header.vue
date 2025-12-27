@@ -1,21 +1,4 @@
-<script setup>
-import Button from '@/components/ui/Button.vue'
 
-const { user, loggedIn, clear } = useUserSession();
-
-async function userLogout() {
-  await clear()
-  navigateTo('/')
-}
-
-function loginWithGoogle() {
-  window.location.href = '/auth/google'
-}
-
-function indexPage() {
-  window.location.href = '/'
-}
-</script>
 
 <template>
   <header class="navbar navbar-expand-lg header-color">
@@ -64,3 +47,22 @@ function indexPage() {
 }
 
 </style>
+
+<script setup>
+import Button from '@/components/ui/Button.vue'
+
+const { user, loggedIn, clear } = useUserSession();
+
+async function userLogout() {
+  await clear()
+  navigateTo('/')
+}
+
+function loginWithGoogle() {
+  window.location.href = '/auth/google'
+}
+
+function indexPage() {
+  window.location.href = '/'
+}
+</script>

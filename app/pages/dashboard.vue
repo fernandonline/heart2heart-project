@@ -74,7 +74,7 @@ onMounted(() => {
         <UiMenuDashboard class="mb-4" />
 
         <div class="card-container">
-          <div v-for="card in cards" :key="card.id" class=" mb-3">
+          <div v-for="card in cards" :key="card.id" class="mb-3">
             <div class="card">
               <img :src="card.imageUrl" class="card-img-top" alt="imagem de ${{ card.title }}">
 
