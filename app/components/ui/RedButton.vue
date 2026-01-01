@@ -12,17 +12,16 @@
   overflow: hidden;
   position: relative;
   transition: color 0.3s ease;
+  cursor: pointer;
+  padding: .5em 1em;
+  font-size: 1em;
+  font-weight: 600;
+  border-radius: var(--b-radius);
 }
 
 .btn-romantic:hover {
   color: var(--white);
-  background-color: #FF496A;
-}
-
-.btn {
-  padding: 0.4em 1.2em;
-  font-weight: 600;
-  border-radius: 0.6em;
+  background-color: #f7234a;
 }
 
 </style>
