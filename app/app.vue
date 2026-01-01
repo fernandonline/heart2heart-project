@@ -1,17 +1,6 @@
 <script setup>
 useHead({
-  script: [
-    {
-      src: "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js",
-      defer: true
-    },
-  ],
-  link: [
-    {
-      rel: "stylesheet",
-      href: "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-    }
-  ]
+  
 });
 
 
@@ -25,7 +14,7 @@ useHead({
 
 <style>
 :root {
-  --radius-card: 14px;
+  --b-radius: 14px;
 
   --bg: #1A1A1E;
   --white: #FFF;
@@ -45,5 +34,13 @@ useHead({
 html, body {
     overflow-x: hidden;
     max-width: 100vw;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  scroll-behavior: smooth;
 }
 </style>

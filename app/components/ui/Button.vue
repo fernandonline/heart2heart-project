@@ -6,10 +6,8 @@
 
 <style scoped>
 .btn {
-  font-weight: 600;
-  border-radius: 0.8em;
+  cursor: pointer;
   color: white;
-  border: 1px solid white;
 }
 
 .btn:hover {
