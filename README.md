@@ -1,4 +1,4 @@
-# Heart2Heart
+# Heart2Heart (em desenvolvimento)
 
 Plataforma para expressar seu carinho através de cartões digitais compartilháveis via QR Code.
 
@@ -101,6 +101,6 @@ heart2heart/
 └── nuxt.config.ts
 ```
 
-## Deploy
+## Keys
 
-(Em construção)
+https://gist.github.com/fernandonline
